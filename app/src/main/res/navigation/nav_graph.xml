@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PagerFragment">
+
+    <fragment
+        android:id="@+id/PagerFragment"
+        android:name="pl.nw.zadanie_06.fragments.PagerFragment"
+        android:label="@string/pager_label"
+        tools:layout="@layout/pager">
+
+        <action
+            android:id="@+id/action_ProductListFragment_to_ProductDetailsFragment"
+            android:label="@string/product_list_label"
+            app:destination="@id/ProductDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ProductListFragment"
+        android:name="pl.nw.zadanie_06.fragments.ProductListFragment"
+        android:label="@string/product_list_label"
+        tools:layout="@layout/product_list">
+
+        <action
+            android:id="@+id/action_ProductListFragment_to_ProductDetailsFragment"
+            app:destination="@id/ProductDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ProductDetailsFragment"
+        android:name="pl.nw.zadanie_06.fragments.ProductDetailsFragment"
+        android:label="@string/product_details_label"
+        tools:layout="@layout/product_details">
+        <argument
+            android:name="productId"
+            android:defaultValue="@null"
+            app:argType="string" />
+        <argument
+            android:name="categoryId"
+            android:defaultValue="@null"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_ProductDetailsFragment_to_PagerFragment"
+            app:destination="@id/PagerFragment" />
+    </fragment>
+</navigation>
